@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include "mysql_modulo.h"
 
-char ** mysql_readquery(char query[], MYSQL* con)
+char ** mysql_readquery(char query[], MYSQL* con, int *filas)
 {
     int fila;
     int totalfilas=0;
@@ -55,6 +55,7 @@ char ** mysql_readquery(char query[], MYSQL* con)
     {
         finish_with_error(con);
     }
+    num_fields=mysql_num_fields(result2);
     MYSQL_ROW row2;
     // Cuento el total de filas.
     i=0;
@@ -79,10 +80,10 @@ char ** mysql_readquery(char query[], MYSQL* con)
     }
     mysql_free_result(result2);
     mysql_close(con);
+    *filas=totalfilas;
     return resultados;
 }
-
-MYSQL *con mysql_startconnection(){
+MYSQL * mysql_startconnection(){
   MYSQL *mysql=NULL;;
   mysql_init(mysql);
   if(!mysql_real_connect(mysql, "localhost", "root", "", "tda", 0, NULL, 0))
