@@ -37,7 +37,7 @@
 //
 //
 
-EXTERN char ** mysql_readquery(char query[], MYSQL con);
+EXTERN char ** mysql_readquery(char query[], MYSQL con, int* filas);
 EXTERN MYSQL *con mysql_startconnection();
 
 
