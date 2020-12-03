@@ -71,7 +71,6 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
         i+=1;
     }
     mysql_free_result(result2);
-    mysql_close(con);
     *filas=totalfilas;
     return resultados;
 }
@@ -91,6 +90,5 @@ if (mysql_query(con, query))
         finish_with_error(con);
         return 0;
     }
-	mysql_close(con);
 	return 1;		
 }

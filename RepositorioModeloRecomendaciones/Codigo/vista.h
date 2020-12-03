@@ -38,7 +38,7 @@
 EXTERN char vistaMenuLoginRegistro();
 EXTERN void vistaLogin(char * usuario, char * contrasena);
 EXTERN void vistaRegistro();
-EXTERN char vistaMenu();
+EXTERN char vistaMenu(char *usuario);
 EXTERN void vistaRegistro(char * usuario, char * contrasena, char *nombre, char *genero, int *edad);
 #undef vista_IMPORT
 #undef EXTERN
