@@ -21,12 +21,8 @@ int main()
     char usuario[27];
     //char queryABT[]="SELECT u.id_usuario, u.edad, p.id_pelicula, p.titulo, u.genero, p.drama, p.accion, p.animacion, p.terror, p.comedia, p.G, p.PG13, p.R, p.actor_principal, p.casa_productora, p.duracion, p.anio_publicacion,  c.calificacion FROM usuarios u LEFT JOIN calificacion_peliculas c USING (id_usuario) LEFT JOIN peliculas p ON (p.id_peliculas=c.id_pelicula)";
 
-   loginYRegistro(con, &idUsuario, usuario);
-   menuPrincipal(con, &idUsuario, usuario);
-   
-    //while
-    
-    
+    loginYRegistro(con, &idUsuario, usuario);
+    menuPrincipal(con, &idUsuario, usuario);
     mysql_close(con);
     
     /*ResultadosQuery=mysql_readquery(query, con, &filas);
