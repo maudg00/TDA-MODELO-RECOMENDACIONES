@@ -1,5 +1,5 @@
 #include "mysql_modulo.h"
-#include <mysql.h>
+
 //#include "datashell.h"
 #include "vista.h"
 #include "usuarios.h"
@@ -23,7 +23,6 @@ int main()
         switch (opcionMenu)
         {
         case '1':
-            vistaLogin(usuario, contrasena);
             usuariosLoginUsuario(con, &idUsuario, usuario);
             validar=TRUE;
         break;

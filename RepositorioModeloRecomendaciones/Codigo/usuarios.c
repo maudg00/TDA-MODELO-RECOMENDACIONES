@@ -1,5 +1,7 @@
 #include "usuarios.h"
-int usuariosloginUsuario(MYSQL* con, int *idUsuario, char * usuario, char *contrasena)
+#include "vista.h"
+#include "mysql_modulo.h"
+int usuariosLoginUsuario(MYSQL* con, int *idUsuario, char * usuario)
 {
     char queryLogin[150];
     int validarLogin=FALSE;
@@ -8,6 +10,7 @@ int usuariosloginUsuario(MYSQL* con, int *idUsuario, char * usuario, char *contr
     int filas=0;
     while(validarLogin==FALSE)
     {
+        vistaLogin(usuario, contrasena);
         sprintf(queryLogin, "SELECT id_usuario FROM usuarios WHERE (username= '%s' AND password= '%s')", usuario, contrasena);
         resultados= mysql_readquery(queryLogin, con, &filas);
         if(filas!=0)

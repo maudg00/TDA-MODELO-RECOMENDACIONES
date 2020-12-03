@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <strings.h>
 #include <string.h>
+#include "mysql_modulo.h"
 /*
 * Application specific headers required by the following declarations
 * (the implementation will import its specific dependencies):
@@ -30,7 +31,7 @@
 #else
     #define EXTERN extern
 #endif
-#include <mysql.h>
+
 
 /* Global variables declarations. */
 //

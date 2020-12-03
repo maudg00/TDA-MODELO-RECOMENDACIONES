@@ -65,18 +65,7 @@ void vistaRegistro(char * usuario, char * contrasena, char *nombre, char *genero
     scanf("%d", edad);
     fflush(stdin);
 }
-char vistaMenu(char * usuario)
+char vistaMenu()
 {
-    char op;
-    printf("Bienvenido %s !.\n", usuario);
-    printf("\n\nMenu:\n");
-    printf("\t1.- Agregar pelicula.\n");
-    printf("\t2.- Calificar pelicula.\n");
-    printf("\t3.- Ver recomendaciones pelicula.\n");
-    printf("\t4.- Ver recomendaciones amigos.\n");
-    printf("\t5.- Salir.\n");
-    printf("Dame tu opcion: ");
-    scanf("%c", &op);
-    fflush(stdin);
-}
 
+}
