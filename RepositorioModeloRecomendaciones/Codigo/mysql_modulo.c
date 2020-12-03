@@ -1,3 +1,11 @@
+
+//
+//  mysql_modulo.c
+//
+//
+//  Created by Equipo 2 - 5/nov/2020
+//
+
 #include "mysql_modulo.h"
 #include <string.h>
 char ** mysql_readquery(char query[], MYSQL* con, int *filas)
@@ -72,4 +80,23 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
     mysql_close(con);
     *filas=totalfilas;
     return resultados;
+}
+MYSQL * mysql_startconnection(){
+  MYSQL *mysql=NULL;;
+  mysql_init(mysql);
+  if(!mysql_real_connect(mysql, "localhost", "root", "", "tda", 0, NULL, 0))
+    {
+      printf("Error al conectarse a la base de datos %s\n", mysql_error(mysql));
+      exit(1);
+    }
+    return mysql;
+}
+int mysql_doquery(char query[], MYSQL con){
+if (mysql_query(con, query))
+    {
+        finish_with_error(con);
+        return 0;
+    }
+	mysql_close(con);
+	return 1;		
 }
