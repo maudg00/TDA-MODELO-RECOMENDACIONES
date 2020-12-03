@@ -37,12 +37,9 @@
 //
 //
 
-EXTERN char ** mysql_readquery(char query[], MYSQL con, int* filas);
-EXTERN MYSQL *con mysql_startconnection();
-
-
-
-
+EXTERN char ** mysql_readquery(char query[], MYSQL *con, int* filas);
+EXTERN MYSQL * mysql_startconnection();
+EXTERN int  mysql_doquery(char query[], MYSQL *con);
 
 
 #undef mysql_modulo_IMPORT
