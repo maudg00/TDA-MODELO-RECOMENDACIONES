@@ -42,7 +42,7 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
     int i;
     for(i=0; i<totalfilas;i++)
     {
-        resultados[i]=malloc(sizeof(char)*100);
+        resultados[i]=malloc(sizeof(char)*200);
     }
 
     //Ahora obtengo resultados bien.
@@ -58,25 +58,19 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
     num_fields=mysql_num_fields(result2);
     MYSQL_ROW row2;
     // Cuento el total de filas.
-    i=0;
     while ((row2 = mysql_fetch_row(result2)))
     {
         char string[100];
         string[0]=0;
         for(int j = 0; j < num_fields; j++)
         {
-            if(j==0)
-            {
-                strcat(string, row[j]);
-            }
-            else
+            if(j>0)
             {
                 strcat(string, ",");
-                strcat(string, row[j]);
             }
+            strcat(string, row[j]);
         }
         strcpy(resultados[i], string);
-        i+=1;
     }
     mysql_free_result(result2);
     mysql_close(con);
