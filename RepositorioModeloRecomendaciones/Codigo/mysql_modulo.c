@@ -87,3 +87,15 @@ MYSQL * mysql_startconnection(){
     }
     return mysql;
 }
+
+
+int mysql_doquery(char query[], MYSQL con){
+if (mysql_query(con, query))
+    {
+        finish_with_error(con);
+        return 0;
+    }
+	mysql_close(con);
+	return 1;		
+}
+
