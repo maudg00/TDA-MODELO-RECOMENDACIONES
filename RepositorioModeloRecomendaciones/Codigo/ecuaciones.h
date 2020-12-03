@@ -11,7 +11,6 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#include <math.h>
 
 extern void ecuacionesRandom(int largo, int ancho, float *matriz[ancho]);
 /*
