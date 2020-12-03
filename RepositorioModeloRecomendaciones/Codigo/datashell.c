@@ -3,7 +3,7 @@
 DATA * datashell_getData(char **data, int SIZE){
 	DATA *d;
 	d = malloc(sizeof(DATA) * SIZE);
-	for(i=0; i<SIZE; i++){
+	for(int i=0; i<SIZE; i++){
 		sscanf(data[i], "%i,%hi,%i,%[^,],%hi,%hi,%hi,%hi,%hi,%hi,%hi,%hi,%[^,],%[^,],%hi,%hi,%[^,]", 
 			&d[i].id_usuario,
 			&d[i].edad,
@@ -26,3 +26,4 @@ DATA * datashell_getData(char **data, int SIZE){
 	
 	return d;
 }
+

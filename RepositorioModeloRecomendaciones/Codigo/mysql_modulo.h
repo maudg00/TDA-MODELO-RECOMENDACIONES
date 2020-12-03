@@ -1,3 +1,4 @@
+
 //
 //  mysql_modulo.h
 //
@@ -14,7 +15,7 @@
 */
 
 #include <stdio.h>
-#include <mysql.h>
+#include <mysqlx/xapi.h>
 
 /*
 * Application specific headers required by the following declarations
@@ -48,3 +49,4 @@ EXTERN int  mysql_doquery(char query[], MYSQL con);
 #undef mysql_modulo_IMPORT
 #undef EXTERN
 #endif /* mysql_modulo_h */
+
