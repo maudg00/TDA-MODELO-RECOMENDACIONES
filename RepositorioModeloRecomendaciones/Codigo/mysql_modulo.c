@@ -2,19 +2,21 @@
 #include <string.h>
 char ** mysql_readquery(char query[], MYSQL* con, int *filas)
 {
-    int fila;
     int totalfilas=0;
     char **resultados=NULL;
     if (mysql_query(con, query))
     {
-        finish_with_error(con);
+        printf("ERROR QUERY: %s", query);
+        return NULL;
     }
 
     MYSQL_RES *result = mysql_store_result(con);
 
     if (result == NULL)
     {
-        finish_with_error(con);
+        *filas=0;
+        printf("QUERY VACIO.\n");
+        return NULL;
     }
     MYSQL_ROW row;
     int num_fields;
@@ -39,12 +41,15 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
     //Ahora obtengo resultados bien.
     if (mysql_query(con, query))
     {
-        finish_with_error(con);
+        printf("ERROR QUERY");
+        return NULL;
     }
     MYSQL_RES *result2 = mysql_store_result(con);
     if (result2 == NULL)
     {
-        finish_with_error(con);
+        *filas=0;
+        printf("QUERY VACIO.\n");
+        return NULL;
     }
     num_fields=mysql_num_fields(result2);
     MYSQL_ROW row2;
@@ -58,38 +63,34 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
         {
             if(j==0)
             {
-                strcat(string, row[j]);
+                strcat(string, row2[j]);
             }
             else
             {
                 strcat(string, ",");
-                strcat(string, row[j]);
+                strcat(string, row2[j]);
             }
         }
         strcpy(resultados[i], string);
         i+=1;
     }
     mysql_free_result(result2);
-    mysql_close(con);
     *filas=totalfilas;
     return resultados;
 }
 MYSQL * mysql_startconnection(){
-  MYSQL *mysql=NULL;;
-  mysql_init(mysql);
-  if(!mysql_real_connect(mysql, "localhost", "root", "", "tda", 0, NULL, 0))
-    {
-      printf("Error al conectarse a la base de datos %s\n", mysql_error(mysql));
-      exit(1);
-    }
-    return mysql;
+   MYSQL mysql;
+  mysql_init(&mysql);
+  mysql_real_connect(&mysql, "localhost", "root", "", "tda", 3306, NULL, 0);
+
+  return &mysql;
 }
 int mysql_doquery(char query[], MYSQL *con){
 if (mysql_query(con, query))
     {
-        finish_with_error(con);
+    printf("ERROR QUERY");
         return 0;
     }
-	mysql_close(con);
+	
 	return 1;		
 }

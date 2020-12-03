@@ -1,12 +1,15 @@
 #include "usuarios.h"
 #include "vista.h"
 #include "mysql_modulo.h"
-int usuariosLoginUsuario(MYSQL* con, int *idUsuario, char * usuario)
+#define TRUE 1
+#define FALSE 0
+void usuariosLoginUsuario(MYSQL* con, int *idUsuario, char * usuario)
 {
     char queryLogin[150];
     int validarLogin=FALSE;
     char contrasena[27];
     char ** resultados;
+    char cont;
     int filas=0;
     while(validarLogin==FALSE)
     {
@@ -20,14 +23,14 @@ int usuariosLoginUsuario(MYSQL* con, int *idUsuario, char * usuario)
         else
         {
             printf("ERROR: esta combinacion de usuario/contrasena no existe.\n");
-
+            rewind(stdin);
         }
     }
     sscanf(resultados[0],"%d", idUsuario);
-    fflush(stdin);
-    return validarLogin;
+    rewind(stdin);
+
 }
-int usuariosRegistrarUsuario(MYSQL* con)
+void usuariosRegistrarUsuario(MYSQL* con)
 {
     char usuario[27],contrasena[27], genero, nombre[50];
     int edad;
@@ -49,7 +52,8 @@ int usuariosRegistrarUsuario(MYSQL* con)
         }
         else
         {
-            sprintf(queryRegistro, "INSERT INTO usuarios (username, password, nombre, edad, genero) VALUES ('%s', '%s', '%s', %d, '%c')", usuario, contrasena, nombre, edad, genero);
+            sprintf(queryRegistro, "INSERT INTO usuarios VALUES (NULL, '%s', '%s', '%s', %d, '%c')", usuario, contrasena, nombre, edad, genero);
+            //printf("Hola %s\n", queryRegistro);
             validarRegistro=mysql_doquery(queryRegistro, con);
             if(validarRegistro==FALSE)
             {
@@ -58,8 +62,9 @@ int usuariosRegistrarUsuario(MYSQL* con)
         }
     }
 }
-void usuariosAgregarPelicula(char * usuario, char * contrasena)
+void usuariosAgregarPelicula(int idUsuario)
 {
+    char nombrePelicula[50], queryInsertar[150];
 
 }
 void usuariosAgregarRecomendacion()

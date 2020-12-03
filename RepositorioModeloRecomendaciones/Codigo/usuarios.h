@@ -14,7 +14,7 @@
 */
 
 #include <stdio.h>
-#include <strings.h>
+
 #include <string.h>
 #include "mysql_modulo.h"
 /*
@@ -36,9 +36,9 @@
 /* Global variables declarations. */
 //
 //
-EXTERN int usuariosLoginUsuario(MYSQL* con, int *idUsuario, char * usuario);
-EXTERN int usuariosRegistrarUsuario(MYSQL* con);
-EXTERN void usuariosAgregarPelicula(char * usuario, char * contrasena);
+EXTERN void usuariosLoginUsuario(MYSQL* con, int *idUsuario, char * usuario);
+EXTERN void usuariosRegistrarUsuario(MYSQL* con);
+EXTERN void usuariosAgregarPelicula(int idUsuario);
 EXTERN void usuariosAgregarRecomendacion();
 #undef usuarios_IMPORT
 #undef EXTERN
