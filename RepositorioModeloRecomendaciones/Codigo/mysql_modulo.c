@@ -1,11 +1,4 @@
 
-//
-//  mysql_modulo.c
-//
-//
-//  Created by Equipo 2 - 5/nov/2020
-//
-
 #include "mysql_modulo.h"
 #include <string.h>
 char ** mysql_readquery(char query[], MYSQL* con, int *filas)
@@ -25,6 +18,7 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
         finish_with_error(con);
     }
     MYSQL_ROW row;
+    int num_fields;
     // Cuento el total de filas.
     while ((row = mysql_fetch_row(result)))
     {
@@ -91,7 +85,7 @@ MYSQL * mysql_startconnection(){
     }
     return mysql;
 }
-int mysql_doquery(char query[], MYSQL con){
+int mysql_doquery(char query[], MYSQL *con){
 if (mysql_query(con, query))
     {
         finish_with_error(con);
