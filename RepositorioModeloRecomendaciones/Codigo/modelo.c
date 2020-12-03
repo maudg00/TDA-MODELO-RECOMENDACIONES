@@ -26,14 +26,14 @@
 
 MYSQL* modeloIniciarConexion()
 {
-	MYSQL* con;
-	con=mysql_startconnection();
-	return con;
+	return mysql_startconnection();
 }
-int modeloQueryNumeroFilas()
+
+
+int modeloQueryNumeroFilas(char query[], MYSQL* con)
 {
 	int filas = 0;
-
+	mysql_readquery(query, con, &filas)
 	return filas;
 }
 

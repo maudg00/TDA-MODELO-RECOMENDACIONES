@@ -42,9 +42,6 @@ EXTERN MYSQL * mysql_startconnection();
 EXTERN int  mysql_doquery(char query[], MYSQL *con);
 
 
-
-
-
 #undef mysql_modulo_IMPORT
 #undef EXTERN
 #endif /* mysql_modulo_h */

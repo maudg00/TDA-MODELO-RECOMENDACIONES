@@ -37,7 +37,8 @@
 //
 //
 EXTERN MYSQL * modeloIniciarConexion();
-EXTERN int modeloQueryNumeroFilas();
+EXTERN int modeloQueryNumeroFilas(char query[], MYSQL* con);
+
 #undef modelo_IMPORT
 #undef EXTERN
 #endif /* modelo_h */

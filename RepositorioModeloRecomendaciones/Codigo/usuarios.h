@@ -36,10 +36,11 @@
 /* Global variables declarations. */
 //
 //
-EXTERN void usuariosLoginUsuario(MYSQL* con, int *idUsuario, char * usuario);
-EXTERN void usuariosRegistrarUsuario(MYSQL* con);
+EXTERN int usuariosLoginUsuario(MYSQL* con, char * usuario, char contrasena[]);
+EXTERN int usuariosRegistrarUsuario(MYSQL* con, char usuario[], char contrasena[], char nombre[], char genero, int edad);
 EXTERN void usuariosAgregarPelicula(int idUsuario);
 EXTERN void usuariosAgregarRecomendacion();
+
 #undef usuarios_IMPORT
 #undef EXTERN
 #endif /* vista_h */

@@ -1,5 +1,6 @@
 #include "mysql_modulo.h"
 #include <string.h>
+
 char ** mysql_readquery(char query[], MYSQL* con, int *filas)
 {
     int totalfilas=0;
@@ -78,6 +79,8 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
     *filas=totalfilas;
     return resultados;
 }
+
+
 MYSQL * mysql_startconnection(){
    MYSQL mysql;
   mysql_init(&mysql);
@@ -85,12 +88,14 @@ MYSQL * mysql_startconnection(){
 
   return &mysql;
 }
+
+
 int mysql_doquery(char query[], MYSQL *con){
-if (mysql_query(con, query))
+	if (mysql_query(con, query))
     {
-    printf("ERROR QUERY");
-        return 0;
+    	printf("ERROR QUERY");
+        return FALSE;
     }
 	
-	return 1;		
+	return TRUE;		
 }
