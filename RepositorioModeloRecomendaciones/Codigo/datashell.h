@@ -1,5 +1,7 @@
 #include <stdlib.h>
-
+#include <stdio.h>
+#include <strings.h>
+#include <string.h>
 typedef struct _data{
 	int id_usuario;
 	short int edad;

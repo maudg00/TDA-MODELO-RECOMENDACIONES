@@ -35,7 +35,7 @@
 /* Global variables declarations. */
 //
 //
-EXTERN int usuariosloginUsuario(MYSQL* con, int *idUsuario, char * usuario);
+EXTERN int usuariosLoginUsuario(MYSQL* con, int *idUsuario, char * usuario);
 EXTERN int usuariosRegistrarUsuario(MYSQL* con);
 EXTERN void usuariosAgregarPelicula(char * usuario, char * contrasena);
 EXTERN void usuariosAgregarRecomendacion();

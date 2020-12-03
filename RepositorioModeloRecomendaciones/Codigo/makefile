@@ -18,3 +18,5 @@ ecuaciones.o: ecuaciones.c
 	
 usuarios.o: usuarios.c
 	gcc -c usuarios.c
+limpia:
+	rm *.o
