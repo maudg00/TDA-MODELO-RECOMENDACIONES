@@ -15,7 +15,7 @@
 */
 
 #include <stdio.h>
-#include <mysqlx/xapi.h>
+#include <mysql.h>
 
 /*
 * Application specific headers required by the following declarations
@@ -38,9 +38,9 @@
 //
 //
 
-EXTERN char ** mysql_readquery(char query[], MYSQL con, int* filas);
-EXTERN MYSQL *con mysql_startconnection();
-EXTERN int  mysql_doquery(char query[], MYSQL con);
+EXTERN char ** mysql_readquery(char query[], MYSQL *con, int* filas);
+EXTERN MYSQL * mysql_startconnection();
+EXTERN int  mysql_doquery(char query[], MYSQL *con);
 
 
 
@@ -49,4 +49,3 @@ EXTERN int  mysql_doquery(char query[], MYSQL con);
 #undef mysql_modulo_IMPORT
 #undef EXTERN
 #endif /* mysql_modulo_h */
-
