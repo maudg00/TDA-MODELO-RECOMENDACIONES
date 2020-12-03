@@ -1,5 +1,5 @@
-pf: main.o mysql_modulo.o vista.o datashell.o ecuaciones.o
-	gcc -o recomendaciones.exe main.o mysql_modulo.o vista.o datashell.o ecuaciones.o
+recomendaciones.exe: main.o mysql_modulo.o vista.o datashell.o ecuaciones.o usuarios.o
+	gcc -o recomendaciones.exe main.o mysql_modulo.o vista.o datashell.o ecuaciones.o usuarios.o -lm
 	
 main.o: main.c
 	gcc -c main.c 
@@ -15,3 +15,6 @@ datashell.o: datashell.c
 
 ecuaciones.o: ecuaciones.c
 	gcc -c ecuaciones.c
+	
+usuarios.o: usuarios.c
+	gcc -c usuarios.c
