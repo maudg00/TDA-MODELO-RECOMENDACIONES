@@ -98,4 +98,9 @@ float n=0.01;
   }
 
 
+<<<<<<< HEAD:RepositorioModeloRecomendaciones/Codigo/ProyectoFinal/ecuaciones.c
 }*/
+=======
+}
+
+>>>>>>> 7f7056e9fdf306f689e84f5f7d1a7d218904119a:RepositorioModeloRecomendaciones/Codigo/ecuaciones.c

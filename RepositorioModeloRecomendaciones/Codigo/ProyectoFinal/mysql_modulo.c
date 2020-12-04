@@ -85,7 +85,11 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
 MYSQL * mysql_startconnection(){
    MYSQL mysql;
   mysql_init(&mysql);
+<<<<<<< HEAD:RepositorioModeloRecomendaciones/Codigo/ProyectoFinal/mysql_modulo.c
   mysql_real_connect(&mysql, "localhost", "root", "root", "tda", 0, NULL, 0);
+=======
+  mysql_real_connect(&mysql, "localhost", "root", "", "tda", 3306, NULL, 0);
+>>>>>>> 7f7056e9fdf306f689e84f5f7d1a7d218904119a:RepositorioModeloRecomendaciones/Codigo/mysql_modulo.c
 
   return &mysql;
 }
