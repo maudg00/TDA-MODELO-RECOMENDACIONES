@@ -1,4 +1,4 @@
-Create:
+
 CREATE TABLE usuarios(
 id_usuario int  AUTO_INCREMENT PRIMARY KEY,
 username varchar(50) NOT NULL,
@@ -32,7 +32,6 @@ id_pelicula int NOT NULL,
 calificacion int NOT NULL
 ) CHARSET=latin1;
 
-Carga inicial:
 INSERT INTO usuarios VALUES(NULL, 'maudg00', 'hola123', 'Mauricio', 20,'M');
 INSERT INTO usuarios VALUES(NULL, 'berny99gr', 'escuelahorror', 'Bernardo', 21,'M');
 INSERT INTO usuarios VALUES(NULL, 'ftapia', 'thebestpassword', 'Fernando', 21,'M');
@@ -83,24 +82,3 @@ INSERT INTO calificacion_peliculas VALUES(3, 16, 5);
 INSERT INTO calificacion_peliculas VALUES(3, 17, 1); 
 INSERT INTO calificacion_peliculas VALUES(3, 18, 1); 
 INSERT INTO calificacion_peliculas VALUES(3, 20, 4); 
-QUERY ABT:
-SELECT u.id_usuario,
- u.edad,
- p.id_peliculas,
- p.titulo,
- u.genero,
- p.drama,
- p.accion,
- p.animacion,
- p.terror,
- p.comedia,
- p.G,
- p.PG13,
- p.R,
- p.actor_principal,
- p.casa_productora,
- p.duracion,
- p.anio_publicacion, 
- c.calificacion
- FROM usuarios u LEFT JOIN calificacion_peliculas c USING (id_usuario)
- LEFT JOIN peliculas p ON (p.id_peliculas=c.id_pelicula);
