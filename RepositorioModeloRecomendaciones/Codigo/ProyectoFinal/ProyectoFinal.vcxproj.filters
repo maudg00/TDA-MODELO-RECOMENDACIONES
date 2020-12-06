@@ -15,19 +15,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
+    <ClInclude Include="Resource.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="cesarin.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="pipes.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="vista.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="usuarios.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
+    <ClInclude Include="structs.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="datashell.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="ecuaciones.h">
+    <ClInclude Include="mysql_modulo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="memoria.h">
@@ -36,16 +45,10 @@
     <ClInclude Include="modelo.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="mysql_modulo.h">
+    <ClInclude Include="ecuaciones.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="usuarios.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="vista.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="structs.h">
+    <ClInclude Include="framework.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
@@ -66,13 +69,19 @@
     <ClCompile Include="ProyectoFinal.c">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="datashell.c">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="ecuaciones.c">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="main.c">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="cesarin.c">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="pipes.c">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="vista.c">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="usuarios.c">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="memoria.c">
@@ -84,10 +93,7 @@
     <ClCompile Include="mysql_modulo.c">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="usuarios.c">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="vista.c">
+    <ClCompile Include="ecuaciones.c">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

@@ -14,7 +14,9 @@
 * (the implementation will import its specific dependencies):
 */
 
+#include <stdlib.h>
 #include "vista.h"
+#include "pipes.h"
 char vistaMenuLoginRegistro()
 {
     char op;
@@ -23,7 +25,7 @@ char vistaMenuLoginRegistro()
     printf("\t2.-Registrar.\n");
     printf("Selecciona tu opcion:\n");
     scanf("%c", &op);
-    rewind(stdin);
+    getchar();
     return op;
 }
 
@@ -35,11 +37,11 @@ void vistaLogin(char * usuario, char * contrasena)
     printf("\tDame tu usuario: ");
     fgets(usuario, 25, stdin);
     usuario[(strlen(usuario)-1)]=0;
-    rewind(stdin);
+    fflush(stdin);
     printf("\n\tDame tu contrasena: ");
     fgets(contrasena, 25, stdin);
     contrasena[(strlen(contrasena)-1)]=0;
-    rewind(stdin);
+    fflush(stdin);
 }
 void vistaRegistro(char * usuario, char * contrasena, char *nombre, char *genero, int *edad)
 {
@@ -61,7 +63,7 @@ void vistaRegistro(char * usuario, char * contrasena, char *nombre, char *genero
     {
         printf("\n\tDame tu genero (M, F, O): ");
         scanf("%c", genero);
-        rewind(stdin);
+        getchar();
     }
     printf("\n\tDame tu edad: ");
     scanf("%d", edad);
@@ -79,15 +81,13 @@ char vistaMenu(char * usuario)
     printf("\t6.-Salir.\n");
     printf("Dame tu opcion: ");
     scanf("%c", &op);
-    rewind(stdin);
+    getchar();
     return op;
 }
 void vistaContinuar()
 {
-    char cont;
     printf("Presiona <enter> para continuar... ");
-    scanf("%c", &cont);
-    rewind(stdin);
+    getchar();
 }
 void vistaAgregarPelicula(Peliculas * peliNueva)
 {
@@ -156,4 +156,12 @@ void vistaAgregarCalificacion(char* nombrePelicula, int* calificacion)
     printf("Del 1 al 5, cuanto le pones?: ");
     scanf("%d", calificacion);
     rewind(stdin);
+}
+
+void vistaGraficarError(){
+  FILE *gnu;
+
+  gnu = pipesOpenGnuPlot();
+  pipesGraphGnuPlot(gnu, "cesarin.csv");
+  _pclose(gnu);
 }

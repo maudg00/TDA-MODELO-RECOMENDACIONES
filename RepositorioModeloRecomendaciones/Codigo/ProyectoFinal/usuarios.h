@@ -38,17 +38,12 @@
 //
 EXTERN int usuariosLoginUsuario(MYSQL* con, char * usuario, char contrasena[]);
 EXTERN int usuariosRegistrarUsuario(MYSQL* con, char usuario[], char contrasena[], char nombre[], char genero, int edad);
-<<<<<<< HEAD:RepositorioModeloRecomendaciones/Codigo/ProyectoFinal/usuarios.h
 EXTERN void usuariosAgregarCalificacion(MYSQL* con, int idUsuario, char nombrepelicula[100], int calificacion);
 
-#undef usuarios_IMPORT
-#undef EXTERN
-#endif 
-=======
+
 EXTERN void usuariosAgregarPelicula(int idUsuario);
 EXTERN void usuariosAgregarRecomendacion();
 
 #undef usuarios_IMPORT
 #undef EXTERN
 #endif /* vista_h */
->>>>>>> 7f7056e9fdf306f689e84f5f7d1a7d218904119a:RepositorioModeloRecomendaciones/Codigo/usuarios.h

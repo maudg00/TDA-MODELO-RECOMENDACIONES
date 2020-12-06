@@ -1,6 +1,31 @@
+//
+//  mysql_modulo.h
+//
+//
+//  Created by Equipo 2 - 03/dic/2020
+//
+
 #include "mysql_modulo.h"
 #include <string.h>
 
+
+/*
+ *
+ * Funcion que realiza query SQL y regresa un arreglo con los resultados
+ *
+ * @params
+ *      query (char *):
+            Query SQL select a realizar
+ 
+ 		con (MYSQL *):
+            Conexion a la base de datos
+        
+        filas (int *)
+        	Pointer para guardar el numero de filas resultantes
+
+ * @returns
+        char ** resultados
+*/
 char ** mysql_readquery(char query[], MYSQL* con, int *filas)
 {
     int totalfilas=0;
@@ -22,14 +47,10 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
     }
     MYSQL_ROW row;
     int num_fields;
-    // Cuento el total de filas.
+    
     while ((row = mysql_fetch_row(result)))
     {
         totalfilas=totalfilas+1;
-        /*for(int i = 0; i < num_fields; i++)
-        {
-            printf("%s ", row[i] ? row[i] : "NULL");
-        }*/
     }
     mysql_free_result(result);
 
@@ -40,7 +61,6 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
         *(resultados+i)=malloc(sizeof(char)*500);
     }
 
-    //Ahora obtengo resultados bien.
     if (mysql_query(con, query))
     {
         printf("ERROR QUERY");
@@ -55,7 +75,7 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
     }
     num_fields=mysql_num_fields(result2);
     MYSQL_ROW row2;
-    // Cuento el total de filas.
+  
     i=0;
     while ((row2 = mysql_fetch_row(result2)))
     {
@@ -73,7 +93,7 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
                 strcat(string, row2[j]);
             }
         }
-        strcpy(resultados[i], string);
+        strcpy(*(resultados+i), string);
         i+=1;
     }
     mysql_free_result(result2);
@@ -81,20 +101,35 @@ char ** mysql_readquery(char query[], MYSQL* con, int *filas)
     return resultados;
 }
 
+/*
+ *
+ * Establece la conexion con la base de datos
+ *
+ * @params
+ *      void
 
-MYSQL * mysql_startconnection(){
-   MYSQL mysql;
-  mysql_init(&mysql);
-<<<<<<< HEAD:RepositorioModeloRecomendaciones/Codigo/ProyectoFinal/mysql_modulo.c
-  mysql_real_connect(&mysql, "localhost", "root", "root", "tda", 0, NULL, 0);
-=======
-  mysql_real_connect(&mysql, "localhost", "root", "", "tda", 3306, NULL, 0);
->>>>>>> 7f7056e9fdf306f689e84f5f7d1a7d218904119a:RepositorioModeloRecomendaciones/Codigo/mysql_modulo.c
-
-  return &mysql;
+ * @returns
+        MYSQL * conexion
+*/
+void mysql_startconnection(MYSQL *mysql){
+   mysql_init(mysql);
+   mysql_real_connect(mysql, "localhost", "root", "root", "tda", 0, NULL, 0);
 }
 
+/*
+ *
+ * Funcion que realiza query SQL y regresa una boolean
+ *
+ * @params
+ *      query (char *):
+            Query SQL select a realizar
+ 
+ 		con (MYSQL *):
+            Conexion a la base de datos
 
+ * @returns
+        int boolean
+*/
 int mysql_doquery(char query[], MYSQL *con){
 	if (mysql_query(con, query))
     {

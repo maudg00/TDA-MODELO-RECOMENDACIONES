@@ -1,5 +1,6 @@
 #ifndef struct_h
 #define struct_h
+#define FEATURES 5
 struct Struct_Pelis
 {
     char titulo[100], director[50], actor_principal[50], casa_productora[100];
@@ -28,4 +29,9 @@ typedef struct _data {
 	short int calificacion;
 
 }DATA;
+
+#define TRUE 1
+#define FALSE 0
+#define FEATURES 5
+#define EPOCS 1000
 #endif

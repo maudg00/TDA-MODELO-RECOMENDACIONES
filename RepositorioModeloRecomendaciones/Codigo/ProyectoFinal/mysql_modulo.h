@@ -2,7 +2,7 @@
 //  mysql_modulo.h
 //
 //
-//  Created by Equipo 2 - 5/nov/2020
+//  Created by Equipo 2 - 3/dic/2020
 //
 
 #ifndef mysql_modulo_h
@@ -15,6 +15,7 @@
 
 #include <stdio.h>
 #include <mysql.h>
+#include "structs.h"
 
 /*
 * Application specific headers required by the following declarations
@@ -37,8 +38,52 @@
 //
 //
 
+
+/*
+ *
+ * Funcion que realiza query SQL y regresa un arreglo con los resultados
+ *
+ * @params
+ *      query (char *):
+            Query SQL select a realizar
+ 
+ 		con (MYSQL *):
+            Conexion a la base de datos
+        
+        filas (int *)
+        	Pointer para guardar el numero de filas resultantes
+
+ * @returns
+        char ** resultados
+*/
 EXTERN char ** mysql_readquery(char query[], MYSQL *con, int* filas);
-EXTERN MYSQL * mysql_startconnection();
+
+/*
+ *
+ * Establece la conexion con la base de datos
+ *
+ * @params
+ *      void
+
+ * @returns
+        MYSQL * conexion
+*/
+EXTERN void mysql_startconnection();
+
+/*
+ *
+ * Funcion que realiza query SQL y regresa una boolean
+ *
+ * @params
+ *      query (char *):
+            Query SQL select a realizar
+ 
+ 		con (MYSQL *):
+            Conexion a la base de datos
+
+ * @returns
+        int boolean
+*/
 EXTERN int  mysql_doquery(char query[], MYSQL *con);
 
 

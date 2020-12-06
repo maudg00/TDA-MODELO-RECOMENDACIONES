@@ -1,1 +1,1 @@
-Aquí se encontrará todo el código del proyecto.
+Aquí tendremos todo el código.

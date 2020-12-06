@@ -1,7 +1,8 @@
-﻿  usuarios.c
+﻿  main.c
+  modelo.c
   Generando código
-  2 of 30 functions ( 6.7%) were compiled, the rest were copied from previous compilation.
+  7 of 51 functions (13.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    3 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   ProyectoFinal.vcxproj -> C:\Users\Mauricio\Desktop\5to Semestre\TDA\RepositorioModeloRecomendaciones\Codigo\ProyectoFinal\x64\Release\ProyectoFinal.exe
