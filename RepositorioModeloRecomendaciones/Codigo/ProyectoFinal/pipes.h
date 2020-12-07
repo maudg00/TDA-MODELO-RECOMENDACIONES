@@ -93,6 +93,7 @@ EXTERN FILE * pipesOpenGnuPlot();
 */
 EXTERN void pipesGraphGnuPlot(FILE * gnupointer, char NombreArch[]);
 
+
 EXTERN void pipesWritePlot(FILE *especial, float *arreglo, int size);
 /*
 * La función pipesObtenerValores se encarga de recibir de un archivo los datos y guardarlos en arreglo
@@ -104,7 +105,11 @@ EXTERN void pipesWritePlot(FILE *especial, float *arreglo, int size);
 * @returns
 */
 EXTERN void pipesObtenerValores(float *arreglo, FILE *archivo);
-
+/*
+    La función pipesWrite permite escribr en un archivo tipo csv la lista de errores de cierto tamaño
+    @params FILE *archivo, float error[], int tam
+    @return 
+*/
 EXTERN void pipesWrite(FILE *archivo, float error[], int tam);
 #undef pipes_IMPORT
 #undef EXTERN
