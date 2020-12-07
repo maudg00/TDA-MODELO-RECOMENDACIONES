@@ -98,9 +98,46 @@ EXTERN void modeloAgregarPelicula(Peliculas pelicula, MYSQL* con);
         void
 */
 EXTERN void modeloVerPeliculas(MYSQL* con);
+/*
+ *
+ * Funcion que se encarga de obtener toda la información necesaria para obtener las aficiones de un usuario respectivamente
+ * Se llama a función de cesarin.h con los datos listos para ser procesados. Para más info de la función de ecuaciones, revisar
+ * su header.
+ *
+ * @params
+ *      MYSQL *con, int idUsuario, float *aficiones, int to_file
 
+ * @returns
+        void
+*/
 EXTERN void modeloObtenerVectorAficiones(MYSQL *con, int idUsuario, float *aficiones, int to_file);
+/*
+ *
+ * Funcion que se encarga de obtener toda la información necesaria para obtener las películas que le gusten a un usuario respectivamente
+ * Se llama a funciónd e cesarin.h con los datos listos para ser procesados. Para más info de la función de ecuaciones, revisar
+ * su header.
+ *
+ * @params
+ *      MYSQL *con, int idUsuario,float *aficiones
+
+ * @returns
+        void
+*/
 EXTERN float * modeloObtenerPeliculasRecomendadas(MYSQL *con, int idUsuario,float *aficiones);
+/*
+ *
+ * Funcion que se encarga de obtener toda la información necesaria para obtener los amigos que le gusten a un usuario respectivamente
+ * Se llama a función de cesarin.h en un ciclo (de tantos amigos que hay) con los datos listos para ser procesados. Para más info de la función de ecuaciones, revisar
+ * su header.
+ * A parte de llamar a eGD, se tiene que considerar que se generar una nueva tabla con las afinidades de los usuarios diferentes a idUsuario para que
+ * se pueda generar el PP entre ambos
+ *
+ * @params
+ *      MYSQL *con, int idUsuario,float *user_aficiones
+
+ * @returns
+        void
+*/
 EXTERN void modeloRecomendarAmigos(MYSQL *con, int idUsuario,float *user_aficiones);
 
 
